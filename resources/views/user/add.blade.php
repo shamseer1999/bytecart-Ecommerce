@@ -3,6 +3,13 @@
     <h3 class="text-center">Add User</h3>
     <form action="" method="post" onsubmit="return check()">
         @csrf
+        @if ($errors->any())
+            <ul>
+                @foreach ($errors->all() as $item)
+                    <li>{{$item}}</li>
+                @endforeach
+            </ul>
+        @endif
         <div class="form-group">
             <label for="">Name</label>
             <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" required>

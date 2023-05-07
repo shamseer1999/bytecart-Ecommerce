@@ -32,6 +32,12 @@ Route::middleware('logged')->group(function(){
     Route::match(['GET','POST'],'/enable-user{id}',[UserController::class,'enable_user'])->name('user.enable');
     Route::match(['GET','POST'],'/delete-user{id}',[UserController::class,'delete_user'])->name('user.delete');
 
+    //category
+    Route::get('/categories',[CategoryController::class,'index'])->name('categories');
+    Route::match(['GET','POST'],'/add-category',[CategoryController::class,'add'])->name('category.add');
+    Route::match(['GET','POST'],'/edit-category{id}',[CategoryController::class,'edit'])->name('category.edit');
+    Route::match(['GET','POST'],'/delete-category{id}',[CategoryController::class,'delete'])->name('category.delete');
+
     //dashbord
     Route::get('/dashbord',[UserController::class,'index'])->name('dashbord');
 

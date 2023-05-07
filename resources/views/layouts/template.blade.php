@@ -15,14 +15,15 @@
         <div class="card">
             <div class="card-body bg-light">
                 <div class="row">
-                    <div class="col-md-2" style="position:relative">
+                    <div class="col-md-2" style="position:relative;height:800px;">
                         <h4>BYTECART</h4>
                         <ul>
                             <li><a href="{{route('dashbord')}}" class="text-decoration-none text-dark">Dashbord</a></li>
                             <li><a href="{{route('users')}}" class="text-decoration-none text-dark">Users</a></li>
+                            <li><a href="{{route('categories')}}" class="text-decoration-none text-dark">Categories</a></li>
                             
                         </ul>
-                        <div style="position:absolute;bottom:10px;">
+                        <div style="position:absolute;bottom:5px;">
                             <ul>
                                 <li><a href="{{{route('logout')}}}" onclick="return confirm('Are you sure you want to logout ?')" class="text-decoration-none text-dark">Logout</a></li>
                             </ul>
@@ -30,7 +31,7 @@
                         </div>
                         
                     </div>
-                    <div class="col-md-10 bg-white">
+                    <div class="col-md-10 bg-white pt-4" style="height:800px;">
                         @if (session()->has('success'))
                             <div class="alert alert-success">{{session('success')}}</div>
                         @endif

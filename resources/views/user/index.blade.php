@@ -49,6 +49,7 @@
                     @endif
                 </tbody>
               </table>
+              {{$results->links()}}
         </div>
     </div>
 @endsection
