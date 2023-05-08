@@ -21,6 +21,7 @@
                             <li><a href="{{route('dashbord')}}" class="text-decoration-none text-dark">Dashbord</a></li>
                             <li><a href="{{route('users')}}" class="text-decoration-none text-dark">Users</a></li>
                             <li><a href="{{route('categories')}}" class="text-decoration-none text-dark">Categories</a></li>
+                            <li><a href="{{route('products')}}" class="text-decoration-none text-dark">Products</a></li>
                             
                         </ul>
                         <div style="position:absolute;bottom:5px;">

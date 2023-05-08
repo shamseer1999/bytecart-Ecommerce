@@ -38,6 +38,12 @@ Route::middleware('logged')->group(function(){
     Route::match(['GET','POST'],'/edit-category{id}',[CategoryController::class,'edit'])->name('category.edit');
     Route::match(['GET','POST'],'/delete-category{id}',[CategoryController::class,'delete'])->name('category.delete');
 
+    //products
+    Route::get('/products',[ProductController::class,'index'])->name('products');
+    Route::match(['GET','POST'],'/add-product',[ProductController::class,'add'])->name('product.add');
+    Route::match(['GET','POST'],'/edit-product{id}',[ProductController::class,'edit'])->name('product.edit');
+    Route::match(['GET','POST'],'/delete-product{id}',[ProductController::class,'delete'])->name('product.delete');
+
     //dashbord
     Route::get('/dashbord',[UserController::class,'index'])->name('dashbord');
 

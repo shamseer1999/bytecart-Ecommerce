@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\categories;
 use Illuminate\Http\Request;
 
 
@@ -14,6 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $data['userCount']=User::get()->count();
+        $data['categoryCount']=categories::where('status',1)->get()->count();
         return view('dashbord',$data);
     }
     public function users()
