@@ -22,13 +22,24 @@ class ProductController extends Controller
         {
             $validated=$request->validate([
                 'name' =>'required',
-                'category' =>'required'
+                'category' =>'required',
+                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
             ]);
+
+            $image="";
+
+            if($request->hasFile('image'))
+            {
+                $file=$request->file('image');
+                $image = 'Product_'.time().'.'.$file->extension();
+                $file->storeAs('public/products',$image);
+            }
 
             $ins_arr=[
                 'product_name' =>$validated['name'],
                 'category_id' =>$validated['category'],
-                'created_by' =>auth()->user()->id
+                'created_by' =>auth()->user()->id,
+                'image' =>$image
             ];
 
             Product::create($ins_arr);
@@ -49,11 +60,22 @@ class ProductController extends Controller
         {
             $validated=$request->validate([
                 'name' =>'required',
-                'category' =>'required'
+                'category' =>'required',
+                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
             ]);
 
             $editdata->product_name = $validated['name'];
             $editdata->category_id = $validated['category'];
+
+            if($request->hasFile('image'))
+            {
+                $file=$request->file('image');
+                $image = 'Product_'.time().'.'.$file->extension();
+                $file->storeAs('public/products',$image);
+
+                $editdata->image = $image;
+            }
+
             $editdata->save();
 
             return redirect()->route('products')->with('success','Product updated successfully');

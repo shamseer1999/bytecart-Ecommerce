@@ -19,6 +19,7 @@ class HomeController extends Controller
             if(auth()->attempt($credentials))
             {
                 return redirect()->route('dashbord');
+                
             }
 
             return redirect()->route('login')->with('danger','Invalid credentials/Inactivated account');

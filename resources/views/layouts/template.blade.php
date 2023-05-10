@@ -11,16 +11,20 @@
 
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-3">
         <div class="card">
             <div class="card-body bg-light">
                 <div class="row">
-                    <div class="col-md-2" style="position:relative;height:800px;">
+                    <div class="col-md-2" style="position:relative;height:600px;">
                         <h4>BYTECART</h4>
                         <ul>
                             <li><a href="{{route('dashbord')}}" class="text-decoration-none text-dark">Dashbord</a></li>
+                            @if (auth()->user()->role_id ==1)
+                                
+                            
                             <li><a href="{{route('users')}}" class="text-decoration-none text-dark">Users</a></li>
                             <li><a href="{{route('categories')}}" class="text-decoration-none text-dark">Categories</a></li>
+                            @endif
                             <li><a href="{{route('products')}}" class="text-decoration-none text-dark">Products</a></li>
                             
                         </ul>
@@ -32,7 +36,7 @@
                         </div>
                         
                     </div>
-                    <div class="col-md-10 bg-white pt-4" style="height:800px;">
+                    <div class="col-md-10 bg-white pt-4" style="height:600px;">
                         @if (session()->has('success'))
                             <div class="alert alert-success">{{session('success')}}</div>
                         @endif

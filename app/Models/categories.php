@@ -13,4 +13,14 @@ class categories extends Model
         'category_name',
         'created_by'
     ];
+
+    public function allProducts()
+    {
+        return $this->hasMany(Product::class,'category_id','id');
+    }
+
+    public function activeProducts()
+    {
+        return $this->allProducts()->where('status',1);
+    }
 }

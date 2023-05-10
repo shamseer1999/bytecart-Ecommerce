@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
     <h3 class="text-center">Edit Product</h3>
-    <form action="" method="post" onsubmit="return check()">
+    <form action="" method="post" onsubmit="return check()" enctype="multipart/form-data">
         @csrf
         @if ($errors->any())
             <ul>
@@ -24,6 +24,15 @@
                     @endforeach
                 @endif
             </select>
+        </div>
+        <div class="form-group">
+            <label for="">Image</label><br>
+            @if (!empty($edit_data->image))
+                <img src="{{asset('storage/'.$edit_data->image)}}" alt="" width="100" height="100">
+            @endif
+            
+            <input type="file" name="image" class="form-control">
+            <small>allowed types : jpeg,png,jpg</small>
         </div>
         <div class="form-group mt-1">
             <input type="submit" name="submit" class="btn btn-primary" value="Edit Product">

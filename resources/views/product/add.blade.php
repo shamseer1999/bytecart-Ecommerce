@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
     <h3 class="text-center">Add Product</h3>
-    <form action="" method="post" onsubmit="return check()">
+    <form action="" method="post" onsubmit="return check()" enctype="multipart/form-data">
         @csrf
         @if ($errors->any())
             <ul>
@@ -13,6 +13,7 @@
         <div class="form-group">
             <label for="">Product Name</label>
             <input type="text" name="name" id="name" class="form-control" required>
+            
         </div>
         <div class="form-group">
             <label for="">Category</label>
@@ -24,6 +25,11 @@
                     @endforeach
                 @endif
             </select>
+        </div>
+        <div class="form-group">
+            <label for="">Image</label>
+            <input type="file" name="image" class="form-control">
+            <small>allowed types : jpeg,png,jpg</small>
         </div>
         <div class="form-group mt-1">
             <input type="submit" name="submit" class="btn btn-primary" value="Add Product">
